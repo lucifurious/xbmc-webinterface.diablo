@@ -3,36 +3,10 @@
 
 --------------------------------------------------------------------------------
 
-AWX uses the JavaScript Library jQuery and jQuery UI. These projects are
-licensed under both MIT and GPL licenses.
-Have a look at
+Diablo uses jQuery, jQuery UI, and jQuery Tools. These projects are licensed
+under both MIT and GPL licenses (as is this web interface). They all are
+excellent frameworks/libraries and deserve special places in your heart.
+
 	http://jquery.com
 	http://jqueryui.com
-
---------------------------------------------------------------------------------
-
-AWX uses some icons of the "Tango Base Icon Theme" which is released to the
-Public Domain.
-Have a look at http://tango.freedesktop.org.
-
---------------------------------------------------------------------------------
-
-AWX uses a modified version of the "Lazy Load"-jQuery-plugin by Mika Tuupola.
-It is licensed under the MIT license:
-	http://www.opensource.org/licenses/mit-license.php
-Have a look at http://www.appelsiini.net/projects/lazyload.
-
---------------------------------------------------------------------------------
-
-AWX uses the "jQuery Hotkeys Plugin" by John Resig.
-It is licensed under both MIT and GPL licenses.
-Have a look at http://github.com/jeresig/jquery.hotkeys.
-
---------------------------------------------------------------------------------
-
-AWX uses the "Simple JavaScript Inheritance"-Plugin by John Resig.
-It is licensed under the MIT license.
-Have a look at http://ejohn.org/blog/simple-javascript-inheritance/.
-
---------------------------------------------------------------------------------
-
+	http://jquerytools.com
