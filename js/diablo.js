@@ -1,36 +1,19 @@
 /**
- * Initialize our page
+ * @var object Our XBMC object
  */
-var _initialize = function() {
-
-	var _diabloInfo = " \
-		<h2>Welcome to Diablo!</h2> \
-		<p></p> \
-		<p>Please visit the <a href=\"http://github.com/lucifurious/xbmc-diablo/\">Diablo website</a> for support</p> \
+var _xbmc = null;
+/**
+ * @var int The current tab
+ */
+var _tabId = null;
+/**
+ * @var string
+ */
+var _diabloInfo = " \
+	<h2>Welcome to Diablo!</h2> \
+	<p></p> \
+	<p>Please visit the <a href=\"http://github.com/lucifurious/xbmc-diablo/\">Diablo website</a> for support</p> \
 ";
-
-	//	Hide all the loaders
-	$('span.loading').css({display:'inline-block'}).hide();
-
-	$().toastmessage({
-		closeText : '<span class="ui-icon ui-icon-circle-close"></span>'
-	});
-
-	//	Configure notifications
-	$().toastmessage(
-		'showToast',
-		{
-			text	 : _diabloInfo,
-			sticky   : false,
-			stayTime : 5000
-		}
-	);
-
-	//	Create our xbmc object
-	_xbmc = new $.xbmc({
-		serverHostName : 'japhrimel.gna.me'
-	});
-};
 
 /**
  * Loads appropriate genre list
@@ -144,4 +127,53 @@ var _loadAlbums = function(pane) {
 		}
 	});
 
+};
+
+//noinspection JSUnusedLocalSymbols
+/**
+ * Sets the inner pane based on the tab selection
+ * @param event
+ * @param i
+ */
+var _selectPane = function(page, event, i) {
+	page.focus();
+
+	var _pane = page.getItems().eq(page.getIndex());
+	var _id = _pane.attr('id');
+
+	//	Now do whatever
+	switch ( _id ) {
+		case 'music-item-albums':
+			_loadAlbums(_pane);
+			break;
+
+		case 'music-item-genres':
+			_loadGenres('music',_pane);
+			break;
+	}
+};
+
+//noinspection JSUnusedLocalSymbols
+/**
+ * Creates the navigator/display for the selected tab
+ * @param pane
+ * @param event
+ * @param ui
+ */
+var _displayTab = function(pane,event,ui) {
+//	//	Create vertical inner-page tabs
+//	$('.items').scrollable({
+//
+//		items : '.items',
+//
+//		//	Vertical tabs
+//		vertical: true,
+//
+//		//	Capture keyboard for up/down/left/right
+//		keyboard: true,
+//
+//		onSeek: function(event,i) {
+//			_selectPane(this.data('scrollable'), event,i);
+//		}
+//	}).navigator('ul.tab-navi');
 };

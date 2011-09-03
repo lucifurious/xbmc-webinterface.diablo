@@ -34,9 +34,9 @@
 	    text-shadow: 0 0 8px #0972A5;
 	}
 
-	div#tab-container li#tab-item-remote {
-		float: right !important;
-	}
+	/*div#tab-container li#tab-item-remote {*/
+		/*float: right !important;*/
+	/*}*/
 
 	span.loading {
 		background: url(../images/icon-loading.gif) no-repeat scroll right center transparent;
@@ -64,9 +64,8 @@
     	margin-top: 0;
 	}
 
-	div.panes div.tab-content {
+	div.tab-content {
 		padding-left:0;
 		padding-top:0;
 		margin-top: 4px;
-		z-index: -1;
 	}

@@ -138,3 +138,71 @@
 .toast-item-brightness {
 	opacity: 1.0 !important;
 }
+
+		/** Toast MakerBetter **/
+		.toast-item {
+			border: 1px solid #666666;
+			border-radius: 6px 6px 6px 6px;
+			font-size: 13px;
+			padding: 4px;
+			color: #ddd;
+			/*min-height: 73px;*/
+			display: block;
+			clear: both;
+		}
+
+		.toast-item h2 {
+			/*display: inline-block;*/
+			margin: 0;
+			opacity: 1;
+			padding: 8px 0 0;
+			/*position: relative;*/
+			text-align: left;
+			color: #fff;
+			height: 32px;
+			margin-bottom: 0;
+		}
+
+		.toast-item p {
+	    	margin: 0;
+		    padding: 4px 8px;
+			text-align: left;
+			font-size: 10pt;
+		}
+
+		.toast-item p a {
+			color: #fff !important;
+		}
+
+		.toast-item p a:hover {
+			color: darkorange !important;
+		}
+
+		.toast-item-close {
+			right: 2px;
+			top: 2px;
+			opacity: .25;
+		}
+
+		.toast-item-close:hover {
+			right: 2px;
+			top: 2px;
+			opacity: 1;
+		}
+
+		.toast-item-image {
+		    margin: 5px 8px 0 5px;
+			display:inline-block;
+		}
+
+		.toast-container {
+			border-radius: 6px;
+			-moz-border-radius: 6px;
+			-webkit-border-radius: 6px;
+		    opacity: 0.90;
+		}
+
+		.toast-item-wrapper {
+			margin-bottom:4px;
+		}
+

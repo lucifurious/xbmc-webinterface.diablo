@@ -8,23 +8,37 @@
 	<link rel="stylesheet" href="css/jquery.toastmessage.css" />
 
 	<script type="text/javascript" src="js/jquery-1.5.2.min.js"></script>
-	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-	<script type="text/javascript" src="js/mbVerticalSlider.js"></script>
 	<script type="text/javascript" src="js/jquery-ui-1.8.16.min.js"></script>
-	<script type="text/javascript" src="js/jquery.tools.scrollable.min.js"></script>
+	<!--<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>-->
+	<script type="text/javascript" src="js/jquery.toastmessage.js"></script>
 	<script type="text/javascript" src="js/jquery.jsonrpc.js"></script>
 	<script type="text/javascript" src="js/jquery.xbmc.js"></script>
-	<script type="text/javascript" src="js/jquery.toastmessage.js"></script>
+	<!--<script type="text/javascript" src="js/mbVerticalSlider.js"></script>-->
+	<script type="text/javascript" src="js/jquery.tools.scrollable.min.js"></script>
 	<script type="text/javascript" src="js/diablo.js"></script>
 
 	<!-- tab pane styling -->
 	<style>
-		/* main vertical scroll */
-		#main {
+		.ui-tabs-vertical { width: 55em; }
+		.ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 12em; }
+		.ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
+		.ui-tabs-vertical .ui-tabs-nav li a { display:block; }
+		.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-selected { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; border-right-width: 1px; }
+		.ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: right; width: 40em;}
+
+			/* main vertical scroll */
+		.tab-content {
 			position: relative;
 			overflow: hidden;
 			height: 489px;
 			border-radius: 0 0 0 6px;
+		}
+
+			/* main vertical scroll */
+		#main {
+			position: relative;
+			overflow: hidden;
+			height: 450px;
 		}
 
 			/* root element for pages */
@@ -35,21 +49,18 @@
 
 			/* single page */
 		.page {
-			padding: 6px;
-			height: 500px;
-			background: url("images/h600.png") repeat-x scroll 0 0 #222222;
+			padding: 10px;
+			height: 450px;
+			background: #222 url(images/h600.png) 0 0 repeat-x;
 			width: 520px;
-			border-radius: 0 6px 6px 6px;
 		}
 
 			/* root element for horizontal scrollables */
 		.scrollable {
 			position: relative;
 			overflow: hidden;
-			width: 537px;
-			height: 451px;
-			border-radius: 0 6px 6px 6px;
-			/*border: 1px solid white;*/
+			width: 510px;
+			height: 450px;
 		}
 
 			/* root element for scrollable items */
@@ -63,18 +74,16 @@
 		.item {
 			float: left;
 			cursor: pointer;
-			width: 510px;
-			padding: 4px;
-			/*border: 1px solid white;*/
-			overflow: hidden;
-			margin-top: -4px;
+			width: 500px;
+			height: 450px;
+			padding: 10px;
 		}
 
 			/* main navigator */
 		#main_navi {
 			float: left;
-			padding: 0;
-			margin: 0 !important;
+			padding: 0px !important;
+			margin: 0px !important;
 		}
 
 		#main_navi li {
@@ -83,21 +92,11 @@
 			clear: both;
 			color: #FFFFFF;
 			font-size: 12px;
-			height: 18px;
+			height: 75px;
 			list-style-type: none;
 			padding: 10px;
 			width: 190px;
 			cursor: pointer;
-		}
-
-		#main_navi li:first-child {
-			border-top: none !important;
-			/*border-radius: 6px 0 0 0;*/
-		}
-
-		#main_navi li:last-child {
-			border-bottom: 1px solid #666;
-			border-radius: 0 0 0 6px;
 		}
 
 		#main_navi li:hover {
@@ -118,373 +117,306 @@
 		}
 
 		#main div.navi {
-			margin-left: 235px;
+			margin-left: 250px;
 			cursor: pointer;
-		}
-
-
-		div.items div.item h3 {
-			margin: 0;
-			padding: 0;
-		}
-
-		/** Toast MakerBetter **/
-		.toast-item {
-			border: 1px solid #666666;
-			border-radius: 6px 6px 6px 6px;
-			font-size: 13px;
-			padding: 4px;
-			color: #ddd;
-			/*min-height: 73px;*/
-			display: block;
-			clear: both;
-		}
-
-		.toast-item h2 {
-			/*display: inline-block;*/
-			margin: 0;
-			opacity: 1;
-			padding: 8px 0 0;
-			/*position: relative;*/
-			text-align: left;
-			color: #fff;
-			height: 32px;
-			margin-bottom: 0;
-		}
-
-		.toast-item p {
-	    	margin: 0;
-		    padding: 4px 8px;
-			text-align: left;
-			font-size: 10pt;
-		}
-
-		.toast-item p a {
-			color: #fff !important;
-		}
-
-		.toast-item p a:hover {
-			color: darkorange !important;
-		}
-
-		.toast-item-close {
-			right: 2px;
-			top: 2px;
-			opacity: .25;
-		}
-
-		.toast-item-close:hover {
-			right: 2px;
-			top: 2px;
-			opacity: 1;
-		}
-
-		.toast-item-image {
-		    margin: 5px 8px 0 5px;
-			display:inline-block;
-		}
-
-		.toast-container {
-			border-radius: 6px;
-			-moz-border-radius: 6px;
-			-webkit-border-radius: 6px;
-		    opacity: 0.90;
-		}
-
-		.toast-item-wrapper {
-			margin-bottom:4px;
-		}
-
-		ul.item-list-view {
-			list-style: none outside;
-			margin: 1px 0 0 0;
-			padding:  0;
-			overflow: hidden;
-			height: 460px;
-		}
-
-		.item-list-view li {
-			border: 1px solid #666;
-			margin: -1px 0 0 0;
-			padding: 12px;
-			font-size: 15px;
-			line-height: 18px;
-			height: 20px;
-			opacity:0.9;
-		}
-
-		.item-list-view li:hover {
-			border-color: #999;
-			opacity:1;
-		}
-
-		.slider {
-			-moz-box-shadow:inset 0px 0px 10px #555;
-			-webkit-box-shadow:inset 0px 0px 10px #555;
-			background: #868585;
-		}
-
-		.slider ul li {
-			border-top:1px solid #666;
-			/*border-bottom:1px solid gray;*/
-			padding:4px;
-			padding-left:10px;
-			margin:0;
-			min-height:30px;
-		}
-
-		.slider ul li:hover{
-			background: #000;
-		}
-
-		.slider ul li:hover.selected{
-			background: transparent;
-		color: white;
-		}
-		.slider ul li.selected{
-			color: white;
-		}
-
-		.slider ul li a{
-			display:block;
-			min-height:30px;
-			color:#ccc;
-			text-decoration:none;
-		}
-
-		.slider ul li.selected a{
-			color: #333;
-			font-weight:bold;
 		}
 	</style>
 </head>
 <body>
 <div id="page-container">
+
 	<div id="page-header"></div>
+
 	<div id="page-body">
-		<div id="page-content">
 
-			<!-- horizontal menu tabs are contained here -->
-			<div id="tab-container">
+		<!-- main navigator -->
+		<ul id="main_navi">
+			<li>Music</li>
+			<li>Movies</li>
+		</ul>
 
-				<!-- our tabs -->
-				<ul class="tabs" class="item-tab-list">
-					<li><a href="#tab-music">Music</a></li>
-					<!--<li><a href="#tab-movies">Movies</a></li>-->
-					<!--<li><a href="#tab-tvshows">TV Shows</a></li>-->
-					<!--<li><a href="#tab-settings">Settings</a></li>-->
-					<!--<li id="tab-item-remote"><a href="#tab-remote">Remote</a></li>-->
-				</ul>
+		<!-- root element for the main scrollable -->
+		<div id="main">
+			<!-- root element for pages -->
+			<div id="pages">
 
-				<div class="panes">
+				<!-- page #1 -->
+				<div class="page">
 
-					<!-- Music -->
-					<div class="tab-content ui-tabs-hide" id="tab-music">
+					<!-- Inner navigator #1 -->
+					<div class="navi"></div>
 
-						<!-- main navigator -->
-						<ul id="main_navi">
-							<li><img src="" alt="Albums" /><span class="loading albums-loading" style="display:none;"></span></li>
-							<li><img src="" alt="Artists" /></li>
-							<li><img src="" alt="Genres" /></li>
-							<li><img src="" alt="Songs" /></li>
-							<li><img src="" alt="Playlists" /></li>
-						</ul>
-
-						<!-- root element for the main scrollable -->
-						<div id="main">
-
-							<!-- root element for pages -->
-							<div id="pages">
-
-								<!-- Albums -->
-								<div class="page">
-
-									<!-- sub navigator #1 -->
-									<div class="navi"></div>
-
-									<!-- inner scrollable #1 -->
-									<div class="scrollable vertical">
-
-										<!-- root element for scrollable items -->
-										<div class="items music-items-album-list">
-											<!-- items on the first page  -->
-										</div>
-
-									</div>
-								</div>
-
-								<!-- Artists -->
-								<div class="page">
-									<!-- sub navigator #1 -->
-									<div class="navi"></div>
-									<!-- inner scrollable #1 -->
-									<div class="scrollable">
-										<!-- root element for scrollable items -->
-										<!-- root element for scrollable items -->
-										<div class="items">
-											<!-- items on the first page  -->
-											<div class="item" id="item-music-artists">
-												<div class="music-item-artist-list"></div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-
-								<div class="page">
-									<!-- sub navigator #1 -->
-									<div class="navi"></div>
-									<!-- inner scrollable #1 -->
-									<div class="scrollable">
-										<!-- root element for scrollable items -->
-										<div class="items">
-											<!-- items on the first page  -->
-											<div class="item" id="item-music-genres">
-												<div class="music-item-genre-list"></div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Songs -->
-								<div class="page">
-									<!-- sub navigator #1 -->
-									<div class="navi"></div>
-									<!-- inner scrollable #1 -->
-									<div class="scrollable">
-										<!-- root element for scrollable items -->
-										<div class="items">
-											<!-- items on the first page  -->
-											<div class="item" id="item-music-songs">
-												<div class="music-item-song-list"></div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Playlists -->
-								<div class="page">
-									<!-- sub navigator #1 -->
-									<div class="navi"></div>
-									<!-- inner scrollable #1 -->
-									<div class="scrollable">
-										<!-- root element for scrollable items -->
-										<div class="items">
-											<!-- items on the first page  -->
-											<div class="item" id="item-music-playlists">
-												<div class="music-item-playlist-list"></div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+					<!-- inner scrollable #1 -->
+					<div class="scrollable">
+						<!-- root element for scrollable items -->
+						<div class="items">
+							<!-- items on the first page  -->
+							<div class="item">Albums</div>
+							<div class="item">Artists</div>
+							<div class="item">Genres</div>
+							<div class="item">Songs</div>
+							<div class="item">Playlists</div>
 						</div>
 					</div>
 
+				</div>
 
-					<!--&lt;!&ndash; Movies &ndash;&gt;-->
-					<!--<div class="tab-content" id="tab-movies">-->
-						<!--<p>Movies</p>-->
-					<!--</div>-->
+				<!-- sub navigator page #1 -->
+				<div class="navi"></div>
+
+				<!-- page #2 -->
+				<div class="page">
+
+					<!-- Inner navigator #1 -->
+					<div class="navi"></div>
+
+					<!-- inner scrollable #1 -->
+					<div class="scrollable">
+						<!-- root element for scrollable items -->
+						<div class="items">
+							<!-- items on the first page  -->
+							<div class="item">Titles</div>
+							<div class="item">Genres</div>
+						</div>
+					</div>
 
 				</div>
 			</div>
 		</div>
+		<!-- horizontal menu tabs are contained here -->
+		<!--<div id="tab-container">-->
+
+			<!--&lt;!&ndash; The actual top row tabs begin here &ndash;&gt;-->
+			<!--<ul class="tabs item-tab-list">-->
+				<!--<li><a href="#tab-music">Music</a></li>-->
+				<!--<li><a href="#tab-movies">Movies</a></li>-->
+				<!--&lt;!&ndash;<li><a href="#tab-movies">Movies</a></li>&ndash;&gt;-->
+				<!--&lt;!&ndash;<li><a href="#tab-tvshows">TV Shows</a></li>&ndash;&gt;-->
+				<!--&lt;!&ndash;<li><a href="#tab-settings">Settings</a></li>&ndash;&gt;-->
+				<!--&lt;!&ndash;<li id="tab-item-remote"><a href="#tab-remote">Remote</a></li>&ndash;&gt;-->
+			<!--</ul>-->
+			<!--&lt;!&ndash; END: The actual top row tabs begin here &ndash;&gt;-->
+
+			<!--&lt;!&ndash;-->
+				<!--Tab Panes Begin Here-->
+			<!--&ndash;&gt;-->
+
+			<!--&lt;!&ndash; Music &ndash;&gt;-->
+			<!--<div class="tab-content ui-tabs-hide scrollable vertical" id="tab-music">-->
+
+				<!--&lt;!&ndash; Vertical tabs for this pane &ndash;&gt;-->
+				<!--<ul class="tab-navi" id="tab-music-submenu">-->
+					<!--<li><img src="#" alt="" /><a href="#music-item-albums">Albums</a><span class="loading albums-loading" style="display:none;"></span></li>-->
+					<!--<li><img src="#" alt="" /><a href="#music-item-artists">Artists</a><span class="loading artists-loading" style="display:none;"></span></li>-->
+					<!--<li><img src="#" alt="" /><a href="#music-item-genres">Genres</a><span class="loading genres-loading" style="display:none;"></span></li>-->
+					<!--<li><img src="#" alt="" /><a href="#music-item-songs">Songs</a><span class="loading songs-loading" style="display:none;"></span></li>-->
+					<!--<li><img src="#" alt="" /><a href="#music-item-playlists">Playlists</a><span class="loading playlists-loading" style="display:none;"></span></li>-->
+				<!--</ul>-->
+
+				<!--&lt;!&ndash; root element for the main scrollable &ndash;&gt;-->
+				<!--<div id="tab-music-pages" class="items">-->
+
+					<!--&lt;!&ndash; Albums &ndash;&gt;-->
+					<!--<div class="item" id="music-item-albums">-->
+						<!--<div class="music-items-album-list">-->
+						<!--</div>-->
+					<!--</div>-->
+
+					<!--&lt;!&ndash; Artists &ndash;&gt;-->
+					<!--<div class="item" id="music-item-artists">-->
+						<!--<div class="music-item-artist-list">-->
+						<!--</div>-->
+					<!--</div>-->
+
+					<!--&lt;!&ndash; Genres &ndash;&gt;-->
+					<!--<div class="item" id="music-item-genres">-->
+						<!--<div class="music-item-genre-list">-->
+						<!--</div>-->
+					<!--</div>-->
+
+					<!--&lt;!&ndash; Songs &ndash;&gt;-->
+					<!--<div class="item" id="music-item-songs">-->
+						<!--<div class="music-item-song-list">-->
+						<!--</div>-->
+					<!--</div>-->
+
+					<!--&lt;!&ndash; Playlist &ndash;&gt;-->
+					<!--<div class="item" id="music-item-playlists">-->
+						<!--<div class="music-item-playlist-list">-->
+						<!--</div>-->
+					<!--</div>-->
+
+				<!--</div>-->
+
+			<!--</div>-->
+
+			<!--&lt;!&ndash; Movies &ndash;&gt;-->
+			<!--<div class="tab-content ui-tabs-hide scrollable vertical" id="tab-movies">-->
+
+				<!--&lt;!&ndash; Vertical tabs for this pane &ndash;&gt;-->
+				<!--<ul class="tab-navi" id="tab-movies-submenu">-->
+					<!--<li><img src="#" alt="" /><a href="#movies-item-albums">Albums</a><span class="loading albums-loading" style="display:none;"></span></li>-->
+					<!--<li><img src="#" alt="" /><a href="#movies-item-artists">Artists</a><span class="loading artists-loading" style="display:none;"></span></li>-->
+					<!--<li><img src="#" alt="" /><a href="#movies-item-genres">Genres</a><span class="loading genres-loading" style="display:none;"></span></li>-->
+					<!--<li><img src="#" alt="" /><a href="#movies-item-songs">Songs</a><span class="loading songs-loading" style="display:none;"></span></li>-->
+					<!--<li><img src="#" alt="" /><a href="#movies-item-playlists">Playlists</a><span class="loading playlists-loading" style="display:none;"></span></li>-->
+				<!--</ul>-->
+
+				<!--&lt;!&ndash; root element for the main scrollable &ndash;&gt;-->
+				<!--<div id="tab-movies-pages" class="items">-->
+
+					<!--&lt;!&ndash; Albums &ndash;&gt;-->
+					<!--<div class="item" id="movies-item-albums">-->
+						<!--<div class="movies-items-album-list">-->
+						<!--</div>-->
+					<!--</div>-->
+
+					<!--&lt;!&ndash; Artists &ndash;&gt;-->
+					<!--<div class="item" id="movies-item-artists">-->
+						<!--<div class="movies-item-artist-list">-->
+						<!--</div>-->
+					<!--</div>-->
+
+					<!--&lt;!&ndash; Genres &ndash;&gt;-->
+					<!--<div class="item" id="movies-item-genres">-->
+						<!--<div class="movies-item-genre-list">-->
+						<!--</div>-->
+					<!--</div>-->
+
+					<!--&lt;!&ndash; Songs &ndash;&gt;-->
+					<!--<div class="item" id="movies-item-songs">-->
+						<!--<div class="movies-item-song-list">-->
+						<!--</div>-->
+					<!--</div>-->
+
+					<!--&lt;!&ndash; Playlist &ndash;&gt;-->
+					<!--<div class="item" id="movies-item-playlists">-->
+						<!--<div class="movies-item-playlist-list">-->
+						<!--</div>-->
+					<!--</div>-->
+
+				<!--</div>-->
+
+			<!--</div>-->
+
+			<!--&lt;!&ndash;-->
+				<!--END: Tab Panes Begin Here-->
+			<!--&ndash;&gt;-->
+
+		<!--</div>-->
+
 	</div>
+
+	<div id="page-footer" class=""></div>
+
 </div>
 <script type="text/javascript">
-	/**
-	 * Our XBMC object
-	 */
-	var _xbmc = null;
-	/**
-	 * Horizontal tabs
-	 */
-	var _horizontal;
+/**
+ * Initialize our page
+ */
+var _initialize = function() {
 
-	/**
-	 * doc ready
-	 */
-	$(function() {
+	//	Do some ui cleanup
+	$('span.loading').css({display:'inline-block'}).hide();
 
-		var _tabId = null;
+	// main vertical scroll
+	$("#main").scrollable({
 
-		//	Start up the horizontal main menu tabs
-		jQuery('div#tab-container').tabs({
-			cookies : 365,
+			vertical: true,
 
-			load : function(event, ui) {
-				_tabId = $('a', ui.panel).attr('href').replace('#tab-','');
-	        },
+			// up/down keys will always control this scrollable
+			keyboard: 'static',
 
-			show : function(event,ui) {
-				//	Create
-				$('#main').scrollable({
-
-					//	Vertical tabs
-					vertical: true,
-
-					//	Capture keyboard for up/down
-					keyboard: 'static',
-
-					//	Focus on tab when switched to
-					onSeek: function(event, i) {
-						var _pane = _horizontal.eq(i);
-						var _page = $(_pane).data('scrollable').focus();
-						var _panes = _page.getItems();
-						var _index = _page.getIndex();
-
-						_pane = $(_panes[_index]);
-						var _id = _pane.attr('id');
-
-						//	Now do whatever
-						switch ( _id ) {
-							case 'item-music-albums':
-								_loadAlbums(_pane);
-								break;
-
-							case 'item-music-genres':
-								_loadGenres('music',_pane);
-								break;
-						}
-					}
-
-				}).navigator('#main_navi');
-
-				//	Initialize horizontal scroller
-				_horizontal = $('.scrollable').scrollable({
-					circular: true
-				}).navigator('.navi');
-
-				_horizontal.eq(0).data('scrollable').focus();
+			// assign left/right keys to the actively viewed scrollable
+			onSeek: function(event, i) {
+				horizontal.eq(i).data("scrollable").focus();
 			}
+	// main navigator (side-navigator)
+	}).navigator("#main_navi");
 
-		}).find('.ui-tabs-nav').sortable({
-				axis:'x'
-			}
-		);
+// horizontal scrollables. each one is circular and has its own navigator instance
+var horizontal = $(".scrollable").scrollable({ circular: true }).navigator(".navi");
 
-		//	Initialize
-		_initialize();
 
-		$('.item-list-view').mb_vSlider({
-				template: 'searchResult.html',
-				totalElements: 1743,
-				easing: 'easeOutExpo',
-				slideTimer: 1000,
-				nextEl: '.vSnext',
-				prevEl: '.vSprev',
-				height: '460px',
-				width: '200px'
-			},
-			{
-				elementsPerPage : 50,
-				actualPage : 0,
-				foo : 100
-			}
-		);
+// when page loads setup keyboard focus on the first horzontal scrollable
+horizontal.eq(0).data("scrollable").focus();
+
+//	//	Create vertical inner-page tabs
+//	$('#tab-container').scrollable({
+//
+//		items : '.items',
+//
+//		//	Vertical tabs
+//		vertical: true,
+//
+//		//	Capture keyboard for up/down/left/right
+//		keyboard: true///,
+//
+////		onSeek: function(event,i) {
+////			_selectPane(this.data('scrollable'), event,i);
+////		}
+//	}).navigator('ul.tab-navi');
+
+	//	Start up the top main menu tabs
+//	$('div#tab-container').tabs({
+//
+////		cookies : 365,
+//
+//		//	Grab the id of the tab when selected
+//		load : function(event, ui) {
+//			_tabId = $('a', ui.panel).attr('href').replace('#tab-','');
+//		},
+//
+//		//	Set the inner pane based on the selection
+//		show : function(event,ui) {
+////			_displayTab(_tabId,event,ui);
+//		}
+//
+//	}).addClass('ui-tabs-vertical ui-helper-clearfix');
+//	$('div#tab-container li').removeClass('ui-corner-top').addClass('ui-corner-left');
+
+	//	Create our xbmc object
+	_xbmc = new $.xbmc({
+		serverHostName : 'japhrimel.gna.me'
 	});
 
+	//	Configure notifications
+	$().toastmessage({
+		closeText : '<span class="ui-icon ui-icon-circle-close"></span>'
+	});
+
+	$().toastmessage('showToast', {
+		text	 : _diabloInfo,
+		sticky   : false,
+		stayTime : 5000
+	});
+
+};
+
+/**
+ * doc ready
+ */
+$(function() {
+	//	Initialize
+	_initialize();
+
+//	$('.item-list-view').mb_vSlider({
+//			template: 'searchResult.html',
+//			totalElements: 1743,
+//			easing: 'easeOutExpo',
+//			slideTimer: 1000,
+//			nextEl: '.vSnext',
+//			prevEl: '.vSprev',
+//			height: '460px',
+//			width: '200px'
+//		},
+//		{
+//			elementsPerPage : 50,
+//			actualPage : 0,
+//			foo : 100
+//		}
+//	);
+});
 </script>
 </body>
 </html>
