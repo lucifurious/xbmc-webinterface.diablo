@@ -1,0 +1,25 @@
+span.icon {
+	height: 18px;
+	width: 18px;
+	display: inline-block;
+	background-color: transparent;
+}
+
+span.icon:hover {
+	background-position: 0 -18px;
+}
+
+.icon-down {
+	background: url(../images/scrollable/arrow/down.png) 0 0 no-repeat;
+}
+
+.icon-up {
+	background: url(../images/scrollable/arrow/up.png) 0 0 no-repeat;
+}
+
+.icon-left {
+	background: url(../images/scrollable/arrow/left.png) 0 0 no-repeat;
+}
+.icon-right {
+	background: url(../images/scrollable/arrow/right.png) 0 0 no-repeat;
+}
