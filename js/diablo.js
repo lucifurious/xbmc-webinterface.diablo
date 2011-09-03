@@ -122,13 +122,19 @@ var _loadAlbums = function(pane) {
 
 	_library('getAlbums',{
 
+		params : {
+			limits: {
+				start : 0,
+				end : 50
+			}
+		},
+
 		success : function(response) {
 			if (response.result && response.result.albums) {
-				var $_list = $('.music-item-album-list',pane);
-				$_list.html('<ul class="item-list-view"></ul>');
+				var $_list = $('.music-items-album-list');
 
 				$.each(response.result.albums,function(index,item) {
-					$_list.appendTo('<li><a rel="'+item.albumid+'" href="#">'+item.label+'</a></li>');
+					$_list.append('<div class="item"><li><a rel="'+item.albumid+'" href="#">'+item.label+'</a></li></div>');
 				});
 			}
 

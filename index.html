@@ -8,19 +8,22 @@
 	<link rel="stylesheet" href="css/jquery.toastmessage.css" />
 
 	<script type="text/javascript" src="js/jquery-1.5.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="js/mbVerticalSlider.js"></script>
 	<script type="text/javascript" src="js/jquery-ui-1.8.16.min.js"></script>
 	<script type="text/javascript" src="js/jquery.tools.scrollable.min.js"></script>
 	<script type="text/javascript" src="js/jquery.jsonrpc.js"></script>
 	<script type="text/javascript" src="js/jquery.xbmc.js"></script>
 	<script type="text/javascript" src="js/jquery.toastmessage.js"></script>
 	<script type="text/javascript" src="js/diablo.js"></script>
+
 	<!-- tab pane styling -->
 	<style>
 		/* main vertical scroll */
 		#main {
 			position: relative;
 			overflow: hidden;
-			height: 450px;
+			height: 489px;
 			border-radius: 0 0 0 6px;
 		}
 
@@ -33,8 +36,8 @@
 			/* single page */
 		.page {
 			padding: 6px;
-			height: 450px;
-			background: #222 url(images/h600.png) 0 0 repeat-x;
+			height: 500px;
+			background: url("images/h600.png") repeat-x scroll 0 0 #222222;
 			width: 520px;
 			border-radius: 0 6px 6px 6px;
 		}
@@ -43,8 +46,8 @@
 		.scrollable {
 			position: relative;
 			overflow: hidden;
-			width: 518px;
-			height: 436px;
+			width: 537px;
+			height: 451px;
 			border-radius: 0 6px 6px 6px;
 			/*border: 1px solid white;*/
 		}
@@ -61,7 +64,6 @@
 			float: left;
 			cursor: pointer;
 			width: 510px;
-			height: 450px;
 			padding: 4px;
 			/*border: 1px solid white;*/
 			overflow: hidden;
@@ -193,6 +195,67 @@
 			margin-bottom:4px;
 		}
 
+		ul.item-list-view {
+			list-style: none outside;
+			margin: 1px 0 0 0;
+			padding:  0;
+			overflow: hidden;
+			height: 460px;
+		}
+
+		.item-list-view li {
+			border: 1px solid #666;
+			margin: -1px 0 0 0;
+			padding: 12px;
+			font-size: 15px;
+			line-height: 18px;
+			height: 20px;
+			opacity:0.9;
+		}
+
+		.item-list-view li:hover {
+			border-color: #999;
+			opacity:1;
+		}
+
+		.slider {
+			-moz-box-shadow:inset 0px 0px 10px #555;
+			-webkit-box-shadow:inset 0px 0px 10px #555;
+			background: #868585;
+		}
+
+		.slider ul li {
+			border-top:1px solid #666;
+			/*border-bottom:1px solid gray;*/
+			padding:4px;
+			padding-left:10px;
+			margin:0;
+			min-height:30px;
+		}
+
+		.slider ul li:hover{
+			background: #000;
+		}
+
+		.slider ul li:hover.selected{
+			background: transparent;
+		color: white;
+		}
+		.slider ul li.selected{
+			color: white;
+		}
+
+		.slider ul li a{
+			display:block;
+			min-height:30px;
+			color:#ccc;
+			text-decoration:none;
+		}
+
+		.slider ul li.selected a{
+			color: #333;
+			font-weight:bold;
+		}
 	</style>
 </head>
 <body>
@@ -240,15 +303,13 @@
 									<div class="navi"></div>
 
 									<!-- inner scrollable #1 -->
-									<div class="scrollable">
+									<div class="scrollable vertical">
 
 										<!-- root element for scrollable items -->
-										<div class="items">
+										<div class="items music-items-album-list">
 											<!-- items on the first page  -->
-											<div class="item" id="item-music-albums">
-												<div class="music-item-album-list"></div>
-											</div>
 										</div>
+
 									</div>
 								</div>
 
@@ -405,6 +466,23 @@
 
 		//	Initialize
 		_initialize();
+
+		$('.item-list-view').mb_vSlider({
+				template: 'searchResult.html',
+				totalElements: 1743,
+				easing: 'easeOutExpo',
+				slideTimer: 1000,
+				nextEl: '.vSnext',
+				prevEl: '.vSprev',
+				height: '460px',
+				width: '200px'
+			},
+			{
+				elementsPerPage : 50,
+				actualPage : 0,
+				foo : 100
+			}
+		);
 	});
 
 </script>

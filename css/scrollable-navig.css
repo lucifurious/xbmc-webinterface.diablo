@@ -2,8 +2,9 @@
 /* this makes it possible to add next button beside scrollable */
 .scrollable {
 	float:left;
-	width: 518px;
-	height: 436px;
+	width: 537px;
+	height: 451px;
+	overflow: hidden;
 }
 
 /* prev, next, prevPage and nextPage buttons */
