@@ -35,32 +35,32 @@ a.next, a.nextPage {
 	clear:right;
 }
 
-/*********** navigator ***********/
-/* position and dimensions of the navigator */
-/*.tab-navi {*/
-	/*margin-left:328px;*/
-	/*width:200px;*/
-	/*height:20px;*/
-/*}*/
+********** navigator **********
+ position and dimensions of the navigator
+.tab-navi {
+	margin-left:328px;
+	width:200px;
+	height:20px;
+}
 
 
-/* items inside navigator */
-/*.tab-navi a {*/
-	/*width:8px;*/
-	/*height:8px;*/
-	/*float:left;*/
-	/*margin:3px;*/
-	/*background:url(../images/scrollable/arrow/navigator.png) 0 0 no-repeat;*/
-	/*display:block;*/
-	/*font-size:1px;*/
-/*}*/
+ items inside navigator
+.tab-navi a {
+	width:8px;
+	height:8px;
+	float:left;
+	margin:3px;
+	background:url(../images/scrollable/arrow/navigator.png) 0 0 no-repeat;
+	display:block;
+	font-size:1px;
+}
 
-/* mouseover state */
-/*.tab-navi a:hover {*/
-	/*background-position:0 -8px;      */
-/*}*/
+ mouseover state
+.tab-navi a:hover {
+	background-position:0 -8px;
+}
 
-/* active state (current page state) */
-/*.tab-navi a.active {*/
-	/*background-position:0 -16px;     */
-/**/}
+ active state (current page state)
+.tab-navi a.active {
+	background-position:0 -16px;
+}

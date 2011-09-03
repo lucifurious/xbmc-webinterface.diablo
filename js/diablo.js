@@ -114,12 +114,17 @@ var _loadAlbums = function(pane) {
 
 		success : function(response) {
 			if (response.result && response.result.albums) {
-				var $_list = $('.music-items-album-list');
+				var $_div = $('.music-items-album-list');
+				var _items = "";
 
 				$.each(response.result.albums,function(index,item) {
-					$_list.append('<div class="item"><li><a rel="'+item.albumid+'" href="#">'+item.label+'</a></li></div>');
+					if (item.label) {
+						_items += '<li class="list-item"><a rel="'+item.albumid+'" href="#">'+item.label+'</a></li>';
+					}
 				});
 			}
+
+			$_div.html('<ul class="list-item-view">'+_items+'</ul>');
 
 			$().toastmessage('removeToast',$_loader);
 			
@@ -143,37 +148,12 @@ var _selectPane = function(page, event, i) {
 
 	//	Now do whatever
 	switch ( _id ) {
-		case 'music-item-albums':
+		case 'music-albums':
 			_loadAlbums(_pane);
 			break;
 
-		case 'music-item-genres':
+		case 'music-genres':
 			_loadGenres('music',_pane);
 			break;
 	}
-};
-
-//noinspection JSUnusedLocalSymbols
-/**
- * Creates the navigator/display for the selected tab
- * @param pane
- * @param event
- * @param ui
- */
-var _displayTab = function(pane,event,ui) {
-//	//	Create vertical inner-page tabs
-//	$('.items').scrollable({
-//
-//		items : '.items',
-//
-//		//	Vertical tabs
-//		vertical: true,
-//
-//		//	Capture keyboard for up/down/left/right
-//		keyboard: true,
-//
-//		onSeek: function(event,i) {
-//			_selectPane(this.data('scrollable'), event,i);
-//		}
-//	}).navigator('ul.tab-navi');
 };
